@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CamelcaseBreakerPipe } from './camelcase-breaker.pipe';
 
 @NgModule({
-  declarations: [CamelcaseBreakerPipe],
+  declarations: [],
   imports: [
     CommonModule
   ]
