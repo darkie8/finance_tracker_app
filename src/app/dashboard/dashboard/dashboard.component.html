@@ -1,3 +1,90 @@
-<p>
-  dashboard works!
-</p>
+<div class="card" style="height: 100vh">
+
+    <!--navbar-->
+   <div class="card-header p-0">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+        <a class="navbar-brand">FinTrack</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a (click)="logout()" class="nav-link">logout</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <div class=" bg-white my-2 my-sm-0 rounded"><button class="btn btn-outline-dark" type="submit">Search</button></div>
+          </form>
+        </div>
+      </nav>
+   </div>
+  
+    <div class="card-body p-0 m-0" style="overflow-y: scroll">
+      <div class="p-0 m-0" style="background-color:rgb(162, 219, 241)">
+        <img src="assets/fin.gif" class="h-25 w-50">
+        <img src="assets/catto.gif" class="h-25 w-25">
+      </div>
+
+<div class="m-3">
+    <h3>UserInfo</h3>
+<div class="mb-2">
+  
+      <button type="button" pButton icon="pi pi-chevron-up" (click)="openPrev()"></button>
+  <button type="button" pButton icon="pi pi-chevron-down" (click)="openNext()"></button>
+</div>
+        
+<p-accordion [activeIndex]="index">
+    <p-accordionTab *ngFor="let keys of userInfoKeys; let i=index" header={{keys}} (onOpen)="onOpen($event)">
+      <span *ngIf="userInfoKeys[this.i] === 'userFeature'">
+         <p-accordion>
+            <p-accordionTab *ngFor="let obj of userInfo.userFeature; let m=index" header={{obj.featureName}} (onOpen)="onOpen($event)">
+              
+                <table class="table table-striped table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">FeatureName</th>
+                        <th scope="col">Active Stat</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                        <td>{{obj.id}}</td>
+                        <td>{{obj.featureName}}</td>
+                        <td>{{obj.active}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+
+            </p-accordionTab>
+         </p-accordion>
+      </span>
+      <span *ngIf="userInfoKeys[this.i] !== 'userFeature' && userInfoKeys[this.i] !== 'userProfile'">
+        {{userInfoValues[i]}}
+      </span>
+
+      <span *ngIf="userInfoKeys[this.i] === 'userProfile'">
+          <p-accordion>
+             <p-accordionTab *ngFor="let obj of userProfileKeys; let m=index" header={{obj}}>
+              {{userProfileValues[m]}}
+ 
+             </p-accordionTab>
+          </p-accordion>
+       </span>
+
+    </p-accordionTab>
+</p-accordion>
+
+</div>
+    </div>
+ 
+    <div class="card-footer text-white bg-dark text-right" style="font-size: 10px">
+        V1.0
+      </div>
+  </div>
+  <p-toast key="logout" position="top-left"></p-toast>

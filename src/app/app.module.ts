@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UserEntryModule } from './user-entry/user-entry.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 @NgModule({
   declarations: [
     AppComponent
@@ -20,7 +21,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
     HttpClientModule,
     FormsModule,
     UserEntryModule,
-    DashboardModule
+    DashboardModule,
+    NgHttpLoaderModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -22,7 +22,7 @@
     </nav>
  </div>
 
-  <div class="card-body row p-0 m-0" style=";overflow-y: scroll">
+  <div class="card-body row p-0 m-0" style="overflow-y: scroll">
     <div class="col-sm-6 p-0 m-0 col-lg-7" style="background-color:rgb(162, 219, 241)">
       <img src="assets/city_dribbble.gif" class="w-100">
     </div>
@@ -31,25 +31,25 @@
             
                 <div class="ui-inputgroup mx-4" style="font-size: 15px" >
                     <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
-                    <input class=" w-100 p-1" type="text" pInputText placeholder="Username">         
+                    <input class=" w-100 p-1" type="text" [(ngModel)]="userName" pInputText placeholder="Username">         
                 </div>
                 <br>
                 <div class="ui-inputgroup mx-4" style="font-size: 15px">
                     <span class="ui-inputgroup-addon"><i class="pi pi-key" width="20px" height="25px"></i></span>
-                    <input class=" w-100 p-1" type="password" pInputText placeholder="Password">         
+                    <input class=" w-100 p-1" type="password" [(ngModel)]="password" pInputText placeholder="Password">         
                 </div>
                 <br>
                 <div class="w-100 row p-0 m-0">
                   <div class="col-4"></div>
                   <div class="col-4 d-flex justify-content-center">
-                    <button type="button" class="btn btn-outline-dark">logIn</button>
+                    <button type="button" class="btn btn-outline-dark" (click)="getLogindata()">logIn</button>
                   </div>
                   <div class="col-4"></div>
                 </div>
         </p-fieldset>
 
       <div class="mt-4 pt-4"> 
-         <img class="w-75 mt-4" style="" src="assets/waving.gif">
+         <img class="w-75 mt-4" src="assets/waving.gif">
         </div>
         
     </div>
@@ -58,3 +58,8 @@
       V1.0
     </div>
 </div>
+
+<p-toast key="un" position="top-left"></p-toast>
+<p-toast key="pass" position="top-left"></p-toast>
+<p-toast key="login" position="top-left"></p-toast>
+<p-toast key="loginerr" position="top-left"></p-toast>

@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PasswordModule } from 'primeng/password';
 import { FormsModule } from '@angular/forms';
 import {FieldsetModule} from 'primeng/fieldset';
+import { ToastModule } from 'primeng/toast';
+
 @NgModule({
   declarations: [LoginComponent, SignupComponent],
   imports: [
@@ -15,7 +17,8 @@ import {FieldsetModule} from 'primeng/fieldset';
     PasswordModule,
     FormsModule,
     UserEntryRoutingModule,
-    FieldsetModule
+    FieldsetModule,
+    ToastModule
   ]
 })
 export class UserEntryModule { }
