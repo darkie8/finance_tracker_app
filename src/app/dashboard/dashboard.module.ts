@@ -7,9 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import {AccordionModule} from 'primeng/accordion';
 import {ButtonModule} from 'primeng/button';
+import { CamelcaseBreakerPipe } from '../share/camelcase-breaker.pipe';
+import {FieldsetModule} from 'primeng/fieldset';
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, CamelcaseBreakerPipe],
   imports: [
     CommonModule,
     TreeModule,
@@ -17,7 +19,8 @@ import {ButtonModule} from 'primeng/button';
     FormsModule,
     ToastModule,
     AccordionModule,
-    ButtonModule
+    ButtonModule,
+    FieldsetModule
   ]
 })
 export class DashboardModule { }

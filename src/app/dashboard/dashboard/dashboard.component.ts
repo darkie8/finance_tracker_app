@@ -22,6 +22,9 @@ export class DashboardComponent implements OnInit {
   userProfile: any;
   userProfileValues: {}[];
   userProfileKeys: string[];
+  userBrand: any;
+  userBrandKeys: string[];
+  userBrandValues: {}[];
   constructor(private httpService: FinancialTrackerService,
     private messageService: MessageService,
     private router: Router) { }
@@ -33,7 +36,6 @@ export class DashboardComponent implements OnInit {
     }
     this.httpService.getdashboardInfo(Cookie.get('authToken')).subscribe(
       response => {
-        console.log(response);
         const userInfo = response['userInfo'];
         this.userInfo = userInfo;
         this.userInfoKeys = Object.keys(userInfo);
@@ -41,6 +43,9 @@ export class DashboardComponent implements OnInit {
         this.userProfile = userInfo.userProfile;
         this.userProfileValues = Object.values(this.userProfile);
         this.userProfileKeys = Object.keys(this.userProfile);
+        this.userBrand = JSON.parse(userInfo.userBrand);
+        this.userBrandKeys = Object.keys(this.userBrand);
+        this.userBrandValues = Object.values(this.userBrand);
       },
       err => { }
     );
